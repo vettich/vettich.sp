@@ -1,0 +1,27 @@
+.adm-submenu-item-link-icon.vettich_sp{
+	background-image: url("/bitrix/images/vettich.sp/sp-icon-v1.svg");
+	background-position: 6px 0;
+	-webkit-background-size: 24px;
+	background-size: 24px;
+}
+
+span.vettich_sp_result {
+	height: 1em;
+	width: 1em;
+	border-radius: 50%;
+	display: inline-block;
+}
+.adm-list-table span.vettich_sp_result {
+	display: block;
+	margin: 0 auto;
+}
+span.vettich_sp_result.text { display: none; }
+select span.vettich_sp_result { display: none; }
+select span.vettich_sp_result.text { display: inline; }
+span.vettich_sp_result.lg {height: 1.5em; width: 1.5em; }
+span.vettich_sp_result.ready { background-color: #ccc; }
+span.vettich_sp_result.running { background-color: #444abf; }
+span.vettich_sp_result.success { background-color: #41a550; }
+span.vettich_sp_result.error { background-color: #b13333; }
+span.vettich_sp_result.error_post { background-color: #750808; }
+span.vettich_sp_result.warning { background-color: #abae3a; }
