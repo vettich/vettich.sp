@@ -79,6 +79,57 @@ if($nextPublishDatetime = $data->get('_NEXT_PUBLISH_AT')) {
 	$nextPublishDatetime = str_replace(':', '\:', $nextPublishDatetime);
 }
 
+
+/**
+ * additional social networks
+ */
+$asnParams = array();
+$asnParams['asn_note'] = 'note:#VETTICH_SP_ASN_NOTE#';
+
+$socialNetworks = array(
+	array(
+		'mid' => 'vettich.sppinterest',
+		'id' => 'pinterest',
+		'isFree' => true,
+	),
+	array(
+		'mid' => 'vettich.spok',
+		'id' => 'ok',
+		'isFree' => false,
+	),
+	array(
+		'mid' => 'vettich.spmymailru',
+		'id' => 'mymailru',
+		'isFree' => false,
+	),
+	array(
+		'mid' => 'vettich.spinstagram',
+		'id' => 'instagram',
+		'isFree' => false,
+	),
+);
+foreach($socialNetworks as $network) {
+	if(IsModuleInstalled($network['mid'])) {
+		$asnParams['asn_'.$network['mid']] = array(
+			'type' => 'plaintext',
+			'title' => "#VETTICH_SP_ASN_$network[id]#",
+			'value' => GetMessage('VETTICH_SP_ASN_INSTALLED', array('#mid#' => $network['mid'], '#sessid#' => bitrix_sessid())),
+		);
+	} else {
+		if($network['isFree']) {
+			$txt = GetMessage('VETTICH_SP_ASN_INSTALL_FREE', array('#mid#' => $network['mid']));
+		} else {
+			$txt = GetMessage('VETTICH_SP_ASN_INSTALL', array('#mid#' => $network['mid']));
+		}
+		$asnParams['asn_'.$network['mid']] = array(
+			'type' => 'plaintext',
+			'title' => "#VETTICH_SP_ASN_$network[id]#",
+			'value' => $txt,
+		);
+	}
+}
+
+
 (new vettich\devform\AdminForm('options', array(
 	'tabs' => array(
 		array(
@@ -134,6 +185,11 @@ if($nextPublishDatetime = $data->get('_NEXT_PUBLISH_AT')) {
 				'_antigate_balance' => empty($balance)? 'plaintext:#ANTIGATE_BALANCE#:#ANTIGATE_BALANCE_NEED_APIKEY#': 'plaintext:#ANTIGATE_BALANCE#:$ '.$balance,
 				'antigate_help' => 'note:#ANTIGATE_APIKEY_HELP#',
 			),
+		),
+		array(
+			'name' => '#TAB_ASN#',
+			'title' => '#TAB_ASN_TITLE#',
+			'params' => $asnParams,
 		),
 		/*array(
 			'name' => 'Единая очередь',
