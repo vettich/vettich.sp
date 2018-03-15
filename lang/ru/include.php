@@ -369,3 +369,16 @@ $MESS['VCH_METHOD_POST_CRON_HELP'] = 'Для работы публикаций, необходимо настроит
 	<b>* * * * * /usr/bin/php /opt/vhosts/bxx.dev/local/modules/vettich.autopostingplus/cron/agent-2.0.php >/dev/null 2>&1</b><br>';
 $MESS['VCH_IS_FIX_ERRORS'] = 'Пытаться автоматически исправлять ошибки при публикации';
 $MESS['VCH_IS_FIX_ERRORS_HELP'] = 'Если отмечена галочка, то модуль будет пытаться исправить возникшие ошибки при публикации. Алгоритм исправления ошибок в данный момент довольно туповатый :) Так что, можно использовать, но на свой страх и риск. Риск в данном случае может быть в том, что при возникновении большого числа ошибок, Ваш аккаунт в соц. сети могут заблокировать.';
+$MESS['VETTICH_SP_CLOSE'] = 'Закрыть';
+$MESS['VETTICH_SP_ELEMENT'] = 'Элемент';
+$MESS['VETTICH_SP_SECTION'] = 'Раздел';
+$MESS['VETTICH_SP_TIME_NAME'] = 'Время публикации';
+$MESS['VETTICH_SP_TIME_NOW'] = 'Сейчас';
+$MESS['VETTICH_SP_TIME_NOW_NOTE'] = 'Элемент будет опубликован в течении нескольких минут';
+$MESS['VETTICH_SP_TIME_AFTER'] = 'Через определенное время';
+$MESS['VETTICH_SP_TIME_AFTER_NUM'] = 'Опубликовать через минут';
+$MESS['VETTICH_SP_TIME_AFTER_NOTE'] = 'Элемент опубликуется через указанное количество минут. Если элементентов несколько, то они будут публиковаться один за другим, через указанный промежуток времени.';
+$MESS['VETTICH_SP_TIME_CHOOSE'] = 'Задать время';
+$MESS['VETTICH_SP_TIME_CHOOSE_NOTE'] = 'Опубликовать в указанные дату и время';
+$MESS['VETTICH_SP_TIME_FIELD'] = 'Выбрать поле даты активности';
+$MESS['VETTICH_SP_PUBLISH_BUTTON'] = 'Опубликовать';

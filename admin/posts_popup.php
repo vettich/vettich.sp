@@ -35,8 +35,7 @@ if($_GET['finish']) {
 			),
 		)),
 		'buttons' => array(
-			// '_save' => 'buttons\saveSubmit:Опубликовать',
-			'_cancel' => 'buttons\submit:Закрыть:params=[onclick=window.close();]',
+			'_cancel' => 'buttons\submit:#VETTICH_SP_CLOSE#:params=[onclick=window.close();]',
 		),
 		'headerButtons' => $headerButtons,
 		'data' => $data,
@@ -158,7 +157,7 @@ if($display == 'detail') {
 			$params += array(
 				'ELEM' => array(
 					'type' => 'plaintext',
-					'title' => 'Элемент',
+					'title' => '#VETTICH_SP_ELEMENT#',
 					'value' => '['.$arElem['ID'].'] '.$arElem['NAME'],
 				),
 			);
@@ -169,7 +168,7 @@ if($display == 'detail') {
 			$params += array(
 				'ELEM' => array(
 					'type' => 'plaintext',
-					'title' => 'Раздел',
+					'title' => '#VETTICH_SP_SECTION#',
 					'value' => '['.$arElem['ID'].'] '.$arElem['NAME'],
 				),
 			);
@@ -293,20 +292,20 @@ if($display == 'detail') {
 				'POPUP_QUEUE_COMMON' => 'checkbox:Использовать настройки единой очереди:Y:refresh=Y',
 				'POPUP_PENDING_MODE' => $queue_common ? 'hidden' : array(
 					'type' => 'select',
-					'title' => 'Время публикации',
+					'title' => '#VETTICH_SP_TIME_NAME#',
 					'options' => array(
-						'now' => 'Сейчас',
-						'after' => 'Через определенное время',
-						'in' => 'Задать время',
-						'field' => 'Выбрать поле даты активности',
+						'now' => '#VETTICH_SP_TIME_NOW#',
+						'after' => '#VETTICH_SP_TIME_AFTER#',
+						'in' => '#VETTICH_SP_TIME_CHOOSE#',
+						'field' => '#VETTICH_SP_TIME_FIELD#',
 					),
 					'default_value' => 'now',
 					'params' => array('onchange' => 'Vettich.Devform.Refresh(this);'),
 				),
-				'PENDING_NOW_NOTE' => ($queue_common or $pending_mode != 'now') ? 'hidden' : 'note:Элемент будет опубликован в течении нескольких минут',
-				'POPUP_PENDING_AFTER' => ($queue_common or $pending_mode != 'after') ? 'hidden' : 'number:Опубликовать через минут:30',
-				'PENDING_AFTER_NOTE' => ($queue_common or $pending_mode != 'after') ? 'hidden' : 'note:Элемент опубликуется через указанное количество минут. Если элементентов несколько, то они будут публиковаться один за другим, через указанный промежуток времени.',
-				'POPUP_PENDING_IN' => ($queue_common or $pending_mode != 'in') ? 'hidden' : 'text:Опубликовать в указанные дату и время:'.$date30,
+				'PENDING_NOW_NOTE' => ($queue_common or $pending_mode != 'now') ? 'hidden' : 'note:#VETTICH_SP_TIME_NOW_NOTE#',
+				'POPUP_PENDING_AFTER' => ($queue_common or $pending_mode != 'after') ? 'hidden' : 'number:#VETTICH_SP_TIME_AFTER_NUM#:30',
+				'PENDING_AFTER_NOTE' => ($queue_common or $pending_mode != 'after') ? 'hidden' : 'note:#VETTICH_SP_TIME_AFTER_NOTE#',
+				'POPUP_PENDING_IN' => ($queue_common or $pending_mode != 'in') ? 'hidden' : 'text:#VETTICH_SP_TIME_CHOOSE_NOTE#:'.$date30,
 				'POPUP_PENDING_FIELD' => ($queue_common or $pending_mode != 'field') ? 'hidden' : array(
 					'type' => 'select',
 					'title' => '#VETTICH_SP_PENDING_DATE#',
@@ -394,8 +393,8 @@ if($display == 'detail') {
 (new \vettich\devform\AdminForm('devform', array(
 	'tabs' => $tabs,
 	'buttons' => array(
-		'_save' => 'buttons\saveSubmit:Опубликовать',
-		'_cancel' => 'buttons\submit:Отмена:params=[onclick=window.close();]',
+		'_save' => 'buttons\saveSubmit:#VETTICH_SP_PUBLISH_BUTTON#',
+		'_cancel' => 'buttons\submit:#VCH_CANCEL#:params=[onclick=window.close();]',
 	),
 	// 'headerButtons' => $headerButtons,
 	'data' => $data,
