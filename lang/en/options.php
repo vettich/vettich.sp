@@ -101,13 +101,25 @@ $MESS['VCH_METHOD_POST_HIT'] = 'on the hits';
 $MESS['VCH_METHOD_POST_CRON'] = 'on the crown';
 $MESS['VCH_METHOD_POST_CLOUD_CRON'] = 'on the cloud crown';
 $MESS['VCH_METHOD_POST_HELP'] = '<b>hits</b> - publication occurs when the site comes any user (does not affect the loading of the page) <br>
-<b>the crown</b> - for this You will need to set crowns on Your server (or hosting). Setup instructions will appear below when selecting this item. <br / >
-<b>cloud crown</b> - the crown is on the developer server, and is invoked about once every one or two minutes. Also does not affect page load time.';
+	<b>the crown</b> - for this You will need to set crowns on Your server (or hosting). Setup instructions will appear below when selecting this item. <br / >
+	<b>cloud crown</b> - the crown is on the developer server, and is invoked about once every one or two minutes. Also does not affect page load time.';
 $MESS['VCH_METHOD_POST_CRON_HELP'] = 'For work publications, you must configure crowns on your server (or hosting). Run time is better to choose times per minute. As the command to execute, you need to register: <br><br>
-<b>/usr/bin/php /opt/vhosts/bxx.dev/local/modules/vettich.autopostingplus/cron/agent-2.0.php >/dev/null 2>&1</b><br><br>
-Is <b>/usr/bin/php</b> You may have another way, please check with your hosting provider. But usually the way the standard. <br / >
-If you are working through ssh, crontab (and not only) then the final command will look like this: <br>
- <b>* * * * * /usr/bin/php /opt/vhosts/bxx.dev/local/modules/vettich.autopostingplus/cron/agent-2.0.php >/dev/null 2>&1</b><br>';
+	<b>/usr/bin/php '.__DIR__.'/cron/agent-2.0.php >/dev/null 2>&1</b><br><br>
+	Is <b>/usr/bin/php</b> You may have another way, please check with your hosting provider. But usually the way the standard. <br / >
+	If you are working through ssh, crontab (and not only) then the final command will look like this: <br>
+	 <b>* * * * * /usr/bin/php '.__DIR__.'/cron/agent-2.0.php >/dev/null 2>&1</b><br>';
 $MESS['VCH_IS_FIX_ERRORS'] = 'Try to automatically fix errors when you publish';
 $MESS['VCH_IS_FIX_ERRORS_HELP'] = 'If the checkbox is marked, the module will attempt to correct these publishing errors. The error correction in the moment is quite dull :) So, you can use but at your own risk. The risk in this case might be that if there are a large number of errors, Your account in the social. network can block.';
 $MESS['VCH_SHOW_MENU_ITEMS_ONE'] = 'To display a single item (with subitems) in the context menu';
+$MESS['VCH_IS_AJAX_INTERVAL'] = 'Additional ajax requests for the publication queue';
+$MESS['VCH_IS_AJAX_INTERVAL_HELP'] = '<b> Not recommended for a weak server, or for large visits </b> - the server may not be able to withstand';
+$MESS['TAB_ASN'] = 'Additional socials';
+$MESS['TAB_ASN_TITLE'] = 'Installing additional social networks';
+$MESS['VETTICH_SP_ASN_NOTE'] = 'From this page, you can install/buy the additional social networks you need';
+$MESS['VETTICH_SP_ASN_pinterest'] = '<a href="http://pinterest.com" target="_blank">Pinterest</a>';
+$MESS['VETTICH_SP_ASN_ok'] = '<a href="http://ok.ru" target="_blank">Odnoklassniki</a>';
+$MESS['VETTICH_SP_ASN_mymailru'] = '<a href="http://my.mail.ru" target="_blank">My World</a>';
+$MESS['VETTICH_SP_ASN_instagram'] = '<a href="http://instagram.com" target="_blank">Instagram</a>';
+$MESS['VETTICH_SP_ASN_INSTALLED'] = 'Установлено. <a href="/bitrix/admin/partner_modules.php?id=#mod#&lang=ru&uninstall=Y&session=#sessid#"> Удалить </a>.';
+$MESS['VETTICH_SP_ASN_INSTALL_FREE'] = 'Install via <a href="/bitrix/admin/update_system_partner.php?addmodule=#mid#"> admin </a>. Look in the <a href="https://marketplace.1c-bitrix.ru/#mid#" target="_blank"> marketplace </a>.';
+$MESS['VETTICH_SP_ASN_INSTALL'] = 'Buy in the <a href="https://marketplace.1c-bitrix.ru/#mid#" target="_blank"> marketplace </a>.';

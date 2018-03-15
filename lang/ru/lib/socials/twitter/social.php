@@ -1,4 +1,5 @@
 <?
+
 $MESS['VETTICH_SP_POST_NAME_twitter'] = 'Twitter';
 $MESS['VETTICH_SP_TWITTER_API_KEY'] = 'Consumer Key';
 $MESS['VETTICH_SP_TWITTER_API_SECRET'] = 'Consumer Secret';

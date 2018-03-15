@@ -1,4 +1,5 @@
 <?
+
 $MESS['VETTICH_SP_POST_NAME_vk'] = 'Вконтакте';
 $MESS['VETTICH_SP_VK_CUSTOM_APP'] = 'Использовать кастомное приложение';
 $MESS['VETTICH_SP_VK_APP_ID'] = 'ID приложения';

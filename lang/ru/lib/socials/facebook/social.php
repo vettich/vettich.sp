@@ -1,4 +1,5 @@
 <?
+
 $MESS['VETTICH_SP_POST_NAME_facebook'] = 'Facebook';
 $MESS['VETTICH_SP_FB_GROUP_ID'] = 'ID группы/страницы';
 $MESS['VETTICH_SP_FB_GROUP_ID_PLACEHOLDER'] = 'Сначала получите аccess token';
