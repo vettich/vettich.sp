@@ -213,8 +213,11 @@ if($display == 'detail') {
 	$params += array('heading4' => 'heading:#VETTICH_SP_CHOOSE_POST_ACCOUNTS#');
 	$individ = ($_POST['POPUP_PUBLISH']['COMMON']['INDIVIDUAL_SETTINGS'] == 'Y'
 		or $data->get('POPUP_PUBLISH[COMMON][INDIVIDUAL_SETTINGS]') == 'Y');
+
 	$queue_common = ($_POST['POPUP_QUEUE_COMMON'] == 'Y'
 		or (empty($_POST) && $data->get('POPUP_QUEUE_COMMON', 'Y') == 'Y'));
+	$queue_common = false;
+
 	$params += (array) Module::socialAccountsForDevForm('POPUP_ACCOUNTS', $individ ? array('onclick' => 'Vettich.Devform.Refresh(this);') : array());
 	$params += array(
 		// 'none_acc' => 'plaintext::'.vettich\devform\Module::mess('#VETTICH_SP_NONE_ACCOUNTS#'),
@@ -289,7 +292,7 @@ if($display == 'detail') {
 			'title' => '#VETTICH_SP_PENDING_POSTING_SETTINGS#',
 			'params' => array(
 				'pendingPostingEnabled' => 'note:#VETTICH_SP_PENDING_POSTING_ENABLED#',
-				'POPUP_QUEUE_COMMON' => 'checkbox:Использовать настройки единой очереди:Y:refresh=Y',
+				// 'POPUP_QUEUE_COMMON' => 'checkbox:Использовать настройки единой очереди:N:refresh=Y',
 				'POPUP_PENDING_MODE' => $queue_common ? 'hidden' : array(
 					'type' => 'select',
 					'title' => '#VETTICH_SP_TIME_NAME#',

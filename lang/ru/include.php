@@ -314,7 +314,7 @@ $MESS['VETTICH_SP_OK_GROUPS_EMPTY'] = 'Группы отсутствуют';
 $MESS['VETTICH_SP_GROUPS'] = 'Группы';
 $MESS['VETTICH_SP_SELECT_GROUP_OR_PROFILE'] = 'Выберите группу или профиль';
 $MESS['VETTICH_SP_IBLOCK_MENU_SEND_AUTO'] = 'Автоматически';
-$MESS['VETTICH_SP_IBLOCK_MENU_SEND_CUSTOM'] = 'Индивидуально (в разработке)';
+$MESS['VETTICH_SP_IBLOCK_MENU_SEND_CUSTOM'] = 'Индивидуально';
 $MESS['VETTICH_SP_IBLOCK_SECTIONS_NOT_FOUND'] = 'Разделы у данного инфоблока отсутствуют';
 $MESS['VETTICH_SP_=='] = 'Равно';
 $MESS['VETTICH_SP_!='] = 'Не равно';

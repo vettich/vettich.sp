@@ -314,7 +314,7 @@ $MESS['VETTICH_SP_OK_GROUPS_EMPTY'] = 'No group';
 $MESS['VETTICH_SP_GROUPS'] = 'Groups';
 $MESS['VETTICH_SP_SELECT_GROUP_OR_PROFILE'] = 'Select a group or profile';
 $MESS['VETTICH_SP_IBLOCK_MENU_SEND_AUTO'] = 'Automatically';
-$MESS['VETTICH_SP_IBLOCK_MENU_SEND_CUSTOM'] = 'Individually (in development)';
+$MESS['VETTICH_SP_IBLOCK_MENU_SEND_CUSTOM'] = 'Individually';
 $MESS['VETTICH_SP_IBLOCK_SECTIONS_NOT_FOUND'] = 'The sections of the information block is missing';
 $MESS['VETTICH_SP_=='] = 'Equal';
 $MESS['VETTICH_SP_!='] = 'Not equal';
