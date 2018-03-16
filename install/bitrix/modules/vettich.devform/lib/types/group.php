@@ -55,7 +55,7 @@ class group extends _type
 		if($this->inline) {
 			$key = null;
 			$i = 0;
-			$val_count = count($values);
+			$val_count = count((array)$values);
 			if(is_array($values)) {
 				foreach ($values as $key => $val) {
 					$deleteButton = false;

@@ -351,9 +351,9 @@ class AdminList extends Module
 						if(($pos = strpos($param->id, '[')) !== false) {
 							$prekey = substr($param->id, 0, $pos);
 							$postkey = substr($param->id, $pos);
-							$name = "FIELDS[{$arRes[ID]}][$prekey]$postkey";
+							$name = "FIELDS[{$arRes['ID']}][$prekey]$postkey";
 						} else {
-							$name = "FIELDS[{$arRes[ID]}][{$param->id}]";
+							$name = "FIELDS[{$arRes['ID']}][{$param->id}]";
 						}
 						$edit = $param->renderTemplate('{content}', array(
 							'{id}' => 'FIELDS-'.$arRes['ID'].'-'.str_replace(array('][', ']', '['), array('-', '', '-'), $param->id),

@@ -67,7 +67,7 @@ class Module extends \vettich\devform\Module
 					}
 				}
 			}
-			uksort(self::$_socials, array('\Vettich\SP\Module', 'socialsSortCallback'));
+			uasort(self::$_socials, array('\Vettich\SP\Module', 'socialsSortCallback'));
 		}
 		if($isAll) {
 			return self::$_socials;

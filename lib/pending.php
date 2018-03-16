@@ -1081,6 +1081,70 @@ class Pending extends Module
 				}
 			}
 
+			// обновление / удаление элементов вне очереди
+
+			if(self::GetOptionString('is_fix_errors', 'N') == 'Y') {
+				$arFilter = array(
+					'LOGIC' => 'OR',
+					array(
+						'STATUS' => 'PUBLISH',
+						array(
+							'LOGIC' => 'OR',
+							array('RESULT' => 'ERROR'),
+							array('RESULT' => 'ERROR'),
+							array('RESULT' => 'WARNING'),
+						),
+					),
+					array(
+						'STATUS' => 'UPDATE',
+						array(
+							'LOGIC' => 'OR',
+							array('RESULT' => 'READY'),
+							array('RESULT' => 'ERROR'),
+							array('RESULT' => 'WARNING'),
+						),
+					),
+					array(
+						'STATUS' => 'DELETE',
+						array(
+							'LOGIC' => 'OR',
+							array('RESULT' => 'READY'),
+							array('RESULT' => 'ERROR'),
+							array('RESULT' => 'WARNING'),
+						),
+					),
+				);
+			} else {
+				$arFilter = array(
+					'LOGIC' => 'OR',
+					array(
+						'STATUS' => 'UPDATE',
+						'RESULT' => 'READY',
+					),
+					array(
+						'STATUS' => 'DELETE',
+						'RESULT' => 'READY',
+					),
+				);
+			}
+			$rs = db::getList(array(
+				'filter' => array(
+					'IS_ENABLE' => 'Y',
+					$arFilter
+				),
+				'order' => array('UPDATED_AT' => 'DESC'),
+				'limit' => 1,
+			));
+			$ar = array();
+			if($ar = $rs->fetch()) {
+				if($ar['RESULT'] == 'WARNING' or $ar['RESULT'] == 'ERROR') {
+					$params['mode'][] = 'only error';
+				}
+				$params['arPost'] = $arPosts[$ar['POST_ID']];
+				self::run($ar, $params);
+			}
+
+
 			// публикация элементов типа MIX
 
 			$resultAct = array('RESULT' => 'READY');

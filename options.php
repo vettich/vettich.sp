@@ -90,7 +90,7 @@ $socialNetworks = array(
 	array(
 		'mid' => 'vettich.sppinterest',
 		'id' => 'pinterest',
-		'isFree' => true,
+		'isFree' => false,
 	),
 	array(
 		'mid' => 'vettich.spok',
