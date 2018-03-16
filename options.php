@@ -98,8 +98,8 @@ $socialNetworks = array(
 		'isFree' => false,
 	),
 	array(
-		'mid' => 'vettich.spmymailru',
-		'id' => 'mymailru',
+		'mid' => 'vettich.spmyworld',
+		'id' => 'myworld',
 		'isFree' => false,
 	),
 	array(

@@ -118,7 +118,7 @@ $MESS['TAB_ASN_TITLE'] = 'Установка дополнительных соц. сетей';
 $MESS['VETTICH_SP_ASN_NOTE'] = 'С этой страницы, Вы можете установить/купить нужные Вам дополнительные соц. сети';
 $MESS['VETTICH_SP_ASN_pinterest'] = '<a href="http://pinterest.com" target="_blank">Pinterest</a>';
 $MESS['VETTICH_SP_ASN_ok'] = '<a href="http://ok.ru" target="_blank">Одноклассники</a>';
-$MESS['VETTICH_SP_ASN_mymailru'] = '<a href="http://my.mail.ru" target="_blank">Мой Мир</a>';
+$MESS['VETTICH_SP_ASN_myworld'] = '<a href="http://my.mail.ru" target="_blank">Мой Мир</a>';
 $MESS['VETTICH_SP_ASN_instagram'] = '<a href="http://instagram.com" target="_blank">Instagram</a>';
 $MESS['VETTICH_SP_ASN_INSTALLED'] = 'Установлено. <a href="/bitrix/admin/partner_modules.php?id=#mid#&lang=ru&uninstall=Y&sessid=#sessid#">Удалить</a>.';
 $MESS['VETTICH_SP_ASN_INSTALL_FREE'] = 'Установить через <a href="/bitrix/admin/update_system_partner.php?addmodule=#mid#">админку</a>. Посмотреть в <a href="https://marketplace.1c-bitrix.ru/#mid#" target="_blank">маркетплейсе</a>.';
