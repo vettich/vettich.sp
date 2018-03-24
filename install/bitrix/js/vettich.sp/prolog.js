@@ -1,14 +1,8 @@
 BX.ready(function() {
 	var intervaRes;
 
-	function _setInterval() {
-		if(!intervaRes) {
-			intervaRes = setInterval(_publish, 30000);
-		}
-	}
-
-	function _clearInterval() {
-		clearInterval(intervaRes);
+	function _setTimeout() {
+		setTimeout(_publish, 30000);
 	}
 
 	function _publish() {
@@ -16,13 +10,11 @@ BX.ready(function() {
 			var show = BX.showWait('adm-workarea');
 		}
 		jQuery.get('/bitrix/tools/vettich.sp/ajax.php?method=publishFromHit', function(data) {
-			console.log(data);
+			// console.log(data);
 			var jsonData = JSON.parse(data);
 			if(jsonData) {
 				if(jsonData.interval) {
-					_setInterval();
-				} else {
-					_clearInterval();
+					_setTimeout();
 				}
 			}
 		}).always(function() {
