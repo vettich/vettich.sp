@@ -251,7 +251,7 @@ $params += array(
 );
 $accounts = array();
 $accData = $data->get('_ACCOUNTS');
-foreach ($accData as $_id => $_data) {
+foreach ((array)$accData as $_id => $_data) {
 	$social = Module::social($_data['type']);
 	$acc = Module::account($_id);
 	if(!isset($social['class'])) {

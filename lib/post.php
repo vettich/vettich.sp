@@ -335,14 +335,14 @@ class Post extends Module
 			$t = self::blockReplace($k, $arFields, $arPost, $isCreateLink);
 			$macros['square'][$k] = $t;
 		}
-		$result = str_replace(array_keys($macros['square']), array_values($macros['square']), $result);
+		$result = str_replace(array_keys((array)$macros['square']), array_values((array)$macros['square']), $result);
 		if(isset($macros['figure'])) foreach((array)$macros['figure'] as $k => $v) {
 			$t = self::macrosReplace(self::mb_substr($k, 1, -1), $arFields, $arPost, $isCreateLink, false);
 			if(strpos($t, '#') === false) {
 				$macros['figure'][$k] = str_replace("\n", '#BR#', $t);
 			}
 		}
-		$result = str_replace(array_keys($macros['figure']), array_values($macros['figure']), $result);
+		$result = str_replace(array_keys((array)$macros['figure']), array_values((array)$macros['figure']), $result);
 		foreach((array)$macros['simple'] as $key => $value) {
 			$macro = self::macroExplode($key);
 			if(empty($macro[0])) {
@@ -356,7 +356,7 @@ class Post extends Module
 		if(isset($macros['simple']['#BR#'])) {
 			$macros['simple']['#BR#'] = '#BR#';
 		}
-		$result = str_replace(array_keys($macros['simple']), array_values($macros['simple']), $result);
+		$result = str_replace(array_keys((array)$macros['simple']), array_values((array)$macros['simple']), $result);
 		$result = str_replace(array("\n", '#BR#'), array('', "\n"), $result);
 		return $result;
 	}
