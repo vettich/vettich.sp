@@ -92,21 +92,21 @@ $socialNetworks = array(
 		'id' => 'pinterest',
 		'isFree' => false,
 	),
-	array(
-		'mid' => 'vettich.spok',
-		'id' => 'ok',
-		'isFree' => false,
-	),
-	array(
-		'mid' => 'vettich.spmyworld',
-		'id' => 'myworld',
-		'isFree' => false,
-	),
-	array(
-		'mid' => 'vettich.spinstagram',
-		'id' => 'instagram',
-		'isFree' => false,
-	),
+	// array(
+	// 	'mid' => 'vettich.spok',
+	// 	'id' => 'ok',
+	// 	'isFree' => false,
+	// ),
+	// array(
+	// 	'mid' => 'vettich.spmyworld',
+	// 	'id' => 'myworld',
+	// 	'isFree' => false,
+	// ),
+	// array(
+	// 	'mid' => 'vettich.spinstagram',
+	// 	'id' => 'instagram',
+	// 	'isFree' => false,
+	// ),
 );
 foreach($socialNetworks as $network) {
 	if(IsModuleInstalled($network['mid'])) {
