@@ -15,7 +15,7 @@ use vettich\sp\Module;
 use vettich\devform\types;
 
 $callback = $_SERVER['SERVER_NAME'].'/bitrix/admin/vettich.sp.fb_callback.php?app_id='.$app_id.'&app_secret='.$app_secret;
-if($_SERVER['HTTPS']) {
+if($_SERVER['HTTPS'] or true) {
 	$callback = 'https://'.$callback;
 } else {
 	$callback = 'http://'.$callback;
