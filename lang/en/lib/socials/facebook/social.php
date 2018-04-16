@@ -16,6 +16,10 @@ $MESS['VETTICH_SP_FB_HELP_CUSTOM_APP'] = 'To use your own application in the FB,
 		<li> Create a new application. If you already have an application created, go to its settings. </li>
 		<li> Go to Settings -> Primary. </li>
 		<li> Copy the Identifier and Application Secret to the appropriate fields on this page. </li>
+		<li> Enter the domain of your site in the "Application domains" field. </li>
+		<li> Enter the path to the privacy policy page or simply enter the address of your site if not. </li>
+		<li> Click "Add platform" and select "Website" and enter your website address. </li>
+		<li> Select the app category - Business and Page. </li>
 		<li> Enter your email address in the "Email for communication" field and save settings. </li>
 		<li> Add the product "Login in via Facebook." </li>
 		<li> Go to settings-added "Login via Facebook". </li>

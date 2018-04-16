@@ -2,6 +2,7 @@
 
 $MESS['VETTICH_SP_POST_NAME_vk'] = 'VKontakte';
 $MESS['VETTICH_SP_VK_CUSTOM_APP'] = 'Use custom app';
+$MESS['VETTICH_SP_VK_FROM_GROUP'] = 'On behalf of the group';
 $MESS['VETTICH_SP_VK_APP_ID'] = 'App ID';
 $MESS['VETTICH_SP_VK_URL'] = 'URL address with access token';
 $MESS['VETTICH_SP_VK_ACCESS_TOKEN'] = 'Access token';

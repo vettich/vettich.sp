@@ -68,6 +68,7 @@ class Social extends \Vettich\SP\Social
 			'_DATA[GROUP_ID]' => 'text:#VETTICH_SP_VK_GROUP_ID#:params=[placeholder=#VETTICH_SP_VK_GROUP_ID_PLACEHOLDER#]',
 			'_DATA[customApp]' => 'checkbox:#VETTICH_SP_VK_CUSTOM_APP#:N:refresh=Y',
 			'_DATA[IS_PROFILE]' => !$isCustopApp ? 'hidden' : 'checkbox:#VETTICH_SP_PROFILE#:N',
+			'_DATA[FROM_GROUP]' => 'checkbox:#VETTICH_SP_VK_FROM_GROUP#:Y',
 			'_DATA[SCREEN_NAME]' => 'hidden',
 			'_DATA[APP_ID]' => !$isCustopApp ? 'hidden' : 'text:#VETTICH_SP_VK_APP_ID#',
 			'_DATA[ACCESS_TOKEN]' => 'text:#VETTICH_SP_VK_ACCESS_TOKEN#:params=[placeholder=#VETTICH_SP_VK_ACCESS_TOKEN_PLACEHOLDER#]',
@@ -193,6 +194,7 @@ class Social extends \Vettich\SP\Social
 			$post['owner_id'] = $arAcc['DATA']['GROUP_ID'];
 		} else {
 			$post['owner_id'] = '-'.$arAcc['DATA']['GROUP_ID'];
+			$post['from_group'] = ($arAcc['DATA']['FROM_GROUP'] == 'Y' ? 1 : 0);
 		}
 		$post['message'] = self::macrosReplace($arData['TEXT'], $arFields, $arPost);
 		$post['message'] = strip_tags($post['message']);

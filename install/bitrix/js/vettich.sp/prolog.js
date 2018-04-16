@@ -11,12 +11,14 @@ BX.ready(function() {
 		}
 		jQuery.get('/bitrix/tools/vettich.sp/ajax.php?method=publishFromHit', function(data) {
 			// console.log(data);
-			var jsonData = JSON.parse(data);
-			if(jsonData) {
-				if(jsonData.interval) {
-					_setTimeout();
+			try {
+				var jsonData = JSON.parse(data);
+				if(jsonData) {
+					if(jsonData.interval) {
+						_setTimeout();
+					}
 				}
-			}
+			} catch (e) {}
 		}).always(function() {
 			if(window.location.pathname == '/bitrix/admin/vettich.sp.queue.php') {
 				if(typeof sTableID != 'undefined'

@@ -2,6 +2,7 @@
 
 $MESS['VETTICH_SP_POST_NAME_vk'] = 'Вконтакте';
 $MESS['VETTICH_SP_VK_CUSTOM_APP'] = 'Использовать кастомное приложение';
+$MESS['VETTICH_SP_VK_FROM_GROUP'] = 'От имени группы';
 $MESS['VETTICH_SP_VK_APP_ID'] = 'ID приложения';
 $MESS['VETTICH_SP_VK_URL'] = 'URL адрес с access token';
 $MESS['VETTICH_SP_VK_ACCESS_TOKEN'] = 'Access token';
