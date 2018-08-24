@@ -86,7 +86,7 @@ class Social extends \Vettich\SP\Social
 		// 	or (empty($_POST) && $_DATA['customApp'] == 'Y')) {
 		// 	$isCustomApp = true;
 		// }
-		$isCustomApp = true;
+		$isCustomApp = false;
 		$params = array(
 			'_ID' => 'hidden',
 			'_TYPE' => 'hidden::'.self::$socialid,
@@ -116,8 +116,8 @@ class Social extends \Vettich\SP\Social
 			),
 			'js' => '
 			function getAccessToken() {
-				var scopes = "publish_actions,manage_pages,publish_pages,public_profile,user_managed_groups,pages_show_list";
-				if(true || $("#_DATA-customApp:checked").length) {
+				var scopes = "manage_pages,publish_pages,public_profile,user_managed_groups,pages_show_list";
+				if(false && $("#_DATA-customApp:checked").length) {
 					if($("#_DATA-APP_ID").val().trim() == "") {
 						alert("App ID is require");
 						return;
@@ -234,12 +234,12 @@ class Social extends \Vettich\SP\Social
 		$post['message'] = $APPLICATION->ConvertCharset($post['message'], SITE_CHARSET, "UTF-8");
 		$post['message'] = trim(html_entity_decode($post['message']));
 		if($arData['LINK'] != '' && $arData['LINK'] != 'none') {
-			$post['link'] = self::createLink($arFields[$arData['LINK']], $arPost);
+			$post['link'] = self::createLink($arFields[$arData['LINK']], $arPost, $arFields);
 		}
 		/*if($arData['MAIN_PICTURE'] != '' && $arData['MAIN_PICTURE'] != 'none' && !empty($post['link'])) {
 			$res = self::getFileNames($arFields[$arData['MAIN_PICTURE']], false);
 			if(isset($res[0])) {
-				$res = self::createLink($res[0], $arPost);
+				$res = self::createLink($res[0], $arPost, $arFields);
 				$post['picture'] = $res;
 			}
 		}

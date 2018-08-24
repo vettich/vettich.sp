@@ -178,7 +178,7 @@ if($display == 'detail') {
 		'heading2' => 'heading:#VETTICH_SP_DOMAIN_HEADING#',
 		'POPUP_PROTOCOL' => 'select:#VETTICH_SP_PROTOCOL#:options=[=#VETTICH_SP_PROTOCOL_DEFAULT#:http=HTTP:https=HTTPS]:help=#VETTICH_SP_PROTOCOL_HELP#',
 		'POPUP_DOMAIN' => 'text:#VETTICH_SP_DOMAIN_NAME#:'.$_SERVER['SERVER_NAME'].':help=#VETTICH_SP_DOMAIN_NAME_HELP#',
-		'POPUP_URL_PARAMS' => 'text:#VETTICH_SP_URL_PARAMS#:utm_source\={social_id}&utm_medium\=cpc:help=#VETTICH_SP_URL_PARAMS_HELP#',
+		'POPUP_URL_PARAMS' => 'text:#VETTICH_SP_URL_PARAMS#:utm_source\=#SOCIAL_ID#&utm_medium\=cpc:help=#VETTICH_SP_URL_PARAMS_HELP#',
 	);
 	if(!isset($_GET['ELEM_ID'])) {
 		$params += array(

@@ -283,7 +283,7 @@ class Pending extends Module
 			return 1;
 		}
 		if($ar['RESULT'] != 'RUNNING'
-			or in_array('running', $params['mode'])) {
+			or in_array('running', (array)$params['mode'])) {
 			try {
 				$upd = array('RESULT' => 'RUNNING');
 				db::update($ar['ID'], $upd);

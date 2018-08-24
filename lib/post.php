@@ -88,7 +88,7 @@ class Post extends Module
 	    return $array;
 	}
 
-	public static function createLink($slink, $arPost)
+	public static function createLink($slink, $arPost, $arFields=array())
 	{
 		$link = $arPost['PROTOCOL'];
 		if(empty($arPost['DOMAIN'])) {
@@ -124,10 +124,10 @@ class Post extends Module
 		if(!empty($arPost['URL_PARAMS'])) {
 			$link .= (strpos($link, '?') !== false) ? '&' : '?';
 			// $rep = array(
-			// 	'{social_id}' => static::$socialid,
+			// 	'#SOCIAL_ID#' => static::$socialid,
 			// );
 			// $link .= str_replace(array_keys($rep), array_values($rep), $arPost['URL_PARAMS']);
-			$link .= self::macrosReplace($arPost['URL_PARAMS'], array(), $arPost);
+			$link .= self::macrosReplace($arPost['URL_PARAMS'], $arFields, $arPost);
 		}
 		if(($shortType = self::GetOptionString('urlshortener', '')) != '') {
 			$link = UrlShortener::short($link, $shortType);
@@ -279,7 +279,7 @@ class Post extends Module
 						$res = array();
 						foreach((array)$arFields[$macro[0]]['VALUES'] as $val) {
 							if($isCreateLink) {
-								$res[] = self::createLink(\CFile::GetPath($val), $arPost);
+								$res[] = self::createLink(\CFile::GetPath($val), $arPost, $arFields);
 							} else {
 								$res[] = \CFile::GetPath($val);
 							}
@@ -287,7 +287,7 @@ class Post extends Module
 						return implode(' ', $res);
 					}
 					if($isCreateLink) {
-						return self::createLink(\CFile::GetPath($arFields[$macro[0]]['VALUE']), $arPost);
+						return self::createLink(\CFile::GetPath($arFields[$macro[0]]['VALUE']), $arPost, $arFields);
 					} else {
 						return \CFile::GetPath($arFields[$macro[0]]['VALUE']);
 					}
@@ -302,12 +302,12 @@ class Post extends Module
 		} elseif(strpos($macro[0], 'UF_') === 0) {
 			return $arFields[$macro[0]];
 		} elseif($macro[0] == 'DETAIL_PAGE_URL' or $macro[0] == 'LIST_PAGE_URL') {
-			return self::createLink($arFields[$macro[0]], $arPost);
+			return self::createLink($arFields[$macro[0]], $arPost, $arFields);
 		} elseif($macro[0] == 'DETAIL_PICTURE' or $macro[0] == 'PREVIEW_PICTURE') {
 			$files = self::getFileNames($arFields[$macro[0]], false);
 			if(!empty($files)) {
 				if($isCreateLink) {
-					return self::createLink($files[0], $arPost);
+					return self::createLink($files[0], $arPost, $arFields);
 				} else {
 					return $files[0];
 				}
@@ -356,8 +356,9 @@ class Post extends Module
 		if(isset($macros['simple']['#BR#'])) {
 			$macros['simple']['#BR#'] = '#BR#';
 		}
+		$result = str_replace("\n", '', $result);
 		$result = str_replace(array_keys((array)$macros['simple']), array_values((array)$macros['simple']), $result);
-		$result = str_replace(array("\n", '#BR#'), array('', "\n"), $result);
+		$result = str_replace('#BR#', "\n", $result);
 		return $result;
 	}
 
@@ -502,7 +503,7 @@ class Post extends Module
 		if(!$acc) {
 			return 'unknown';
 		}
-		$result = '<a href="/bitrix/admin/vettich.sp.post_edit.php?socialid='.$acc['TYPE']
+		$result = '<a href="/bitrix/admin/vettich.sp.social_edit.php?socialid='.$acc['TYPE']
 			.'&ID='.$acc['ID']
 			.'&back_url='.urlencode($_SERVER['REQUEST_URI'])
 			.'">'.$acc['NAME'].'</a>';

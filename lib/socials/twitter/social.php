@@ -220,7 +220,7 @@ class Social extends \Vettich\SP\Social
 		$post['status'] = self::substr($post['status'], 0, $status_fsize);
 		if($arData['LINK'] != '' && $arData['LINK'] != 'none') {
 			// $link = self::getLinkFromProperty($arData['TWITTER_LINK'], $arFields, $arPost, $arSite);
-			$link = self::createLink($arFields[$arData['LINK']], $arPost);
+			$link = self::createLink($arFields[$arData['LINK']], $arPost, $arFields);
 			if(!empty($link)) {
 				$status_fsize -= 24;
 				$post['status'] = self::substr($post['status'], 0, $status_fsize);

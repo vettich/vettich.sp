@@ -218,7 +218,7 @@ class Social extends \Vettich\SP\Social
 		if(count($post['attachments']) > 10)
 			array_splice($post['attachments'], 10);
 		if($arData['LINK'] != '' && $arData['LINK'] != 'none') {
-			$res = self::createLink($arFields[$arData['LINK']], $arPost);
+			$res = self::createLink($arFields[$arData['LINK']], $arPost, $arFields);
 			if(!empty($res)) {
 				if(count($post['attachments']) > 9)
 					array_splice($post['attachments'], 9);

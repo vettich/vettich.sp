@@ -43,16 +43,17 @@ class vettich_sp extends CModule
 
 	function InstallDevform()
 	{
-		if(!CModule::IncludeModule('vettich.devform')) {
-			if(!file_exists($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/vettich.devform/install/index.php')) {
-				CopyDirFiles($this->MODULE_ROOT_DIR.'/install/bitrix/modules',$_SERVER['DOCUMENT_ROOT'].'/bitrix/modules', true, true);
-			}
-			include $_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/vettich.devform/install/index.php';
-			if(class_exists('vettich_devform')) {
-				$cl = new vettich_devform();
-				if(!$cl->IsInstalled()) {
-					$cl->DoInstall();
-				}
+		if(CModule::IncludeModule('vettich.devform')) {
+			return;
+		}
+		if(!file_exists($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/vettich.devform/install/index.php')) {
+			CopyDirFiles($this->MODULE_ROOT_DIR.'/install/bitrix/modules',$_SERVER['DOCUMENT_ROOT'].'/bitrix/modules', true, true);
+		}
+		include $_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/vettich.devform/install/index.php';
+		if(class_exists('vettich_devform')) {
+			$cl = new vettich_devform();
+			if(!$cl->IsInstalled()) {
+				$cl->DoInstall();
 			}
 		}
 	}
