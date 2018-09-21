@@ -76,11 +76,10 @@ class Pending extends Module
 			while ($ar = $rsPosts->fetch()) {
 				$arPosts[$ar['ID']] = $ar;
 			}
-			self::iblockValueFill($arFields);
 		} else {
 			$arPosts[$params['arPost']['ID']] = $params['arPost'];
-			self::iblockValueFill($arFields, true);
 		}
+		self::iblockValueFill($arFields, true);
 		foreach((array)$arPosts as $arPost) {
 			if(($arPost['IS_MANUALLY'] == 'Y' && $params['type'] == 'OnAfterIblockElementAdd')
 				|| $arPost['IBLOCK_ID'] != $arFields['IBLOCK_ID']
@@ -536,7 +535,7 @@ class Pending extends Module
 							'STATUS' => 'PUBLISH',
 							'RESULT' => 'READY',
 							'TYPE' => 'IBLOCK',
-							'POST_ID' => $arPosts['ID'],
+							'POST_ID' => $arPost['ID'],
 						),
 					);
 					if(self::GetOptionString('is_fix_errors', 'N') == 'Y') {

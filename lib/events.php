@@ -73,6 +73,7 @@ class Events extends Module
 								$qstr .= '&ELEM_ID='.$v->id;
 							}
 						}
+						$actionKey = (SM_VERSION <= '18.0.4' ? 'ACTION' : 'ONCLICK');
 						if(self::GetOptionString('show_menu_items_one', 'Y') == 'Y') {
 							$arnewActions[] = array(
 								'GLOBAL_ICON' => 'vap-publish',
@@ -80,11 +81,11 @@ class Events extends Module
 								'MENU' => array(
 									array(
 										'TEXT' => GetMessage('VETTICH_SP_IBLOCK_MENU_SEND_AUTO'),
-										'ACTION' => 'Vettich.SP.MenuSend("'.$qstr.'");',
+										$actionKey => 'Vettich.SP.MenuSend("'.$qstr.'");',
 									),
 									array(
 										'TEXT' => GetMessage('VETTICH_SP_IBLOCK_MENU_SEND_CUSTOM'),
-										'ACTION' => 'Vettich.SP.MenuSendIndividual("'.$qstr.'");',
+										$actionKey => 'Vettich.SP.MenuSendIndividual("'.$qstr.'");',
 									),
 								),
 							);
@@ -92,12 +93,12 @@ class Events extends Module
 							$arnewActions[] = array(
 								'GLOBAL_ICON' => 'vap-publish',
 								'TEXT' => GetMessage('VETTICH_SP_IBLOCK_MENU_SEND').': '.GetMessage('VETTICH_SP_IBLOCK_MENU_SEND_AUTO'),
-								'ACTION' => 'Vettich.SP.MenuSend("'.$qstr.'");',
+								$actionKey => 'Vettich.SP.MenuSend("'.$qstr.'");',
 							);
 							$arnewActions[] = array(
 								'GLOBAL_ICON' => 'vap-publish',
 								'TEXT' => GetMessage('VETTICH_SP_IBLOCK_MENU_SEND').': '.GetMessage('VETTICH_SP_IBLOCK_MENU_SEND_CUSTOM'),
-								'ACTION' => 'Vettich.SP.MenuSendIndividual("'.$qstr.'");',
+								$actionKey => 'Vettich.SP.MenuSendIndividual("'.$qstr.'");',
 							);
 						}
 						$arnewActions[] = array('SEPARATOR'=>true);

@@ -49,10 +49,10 @@ $isSections = false;
 $name_auto = '';
 // get iblock ids list if iblock type selected
 if(($iblock_type = $_POST['_IBLOCK_TYPE']) or ($iblock_type = $data->get('_IBLOCK_TYPE'))) {
-	$name_auto = $arIblockTypes[$iblock_type];
-	if(($pos = strpos($name_auto, ']')) !== false) {
-		$name_auto = trim(substr($name_auto, $pos+1));
-	}
+	// $name_auto = $arIblockTypes[$iblock_type];
+	// if(($pos = strpos($name_auto, ']')) !== false) {
+	// 	$name_auto = trim(substr($name_auto, $pos+1));
+	// }
 	// выборка инфоблоков
 	$arIblockIds = array('' => Module::mess('#VETTICH_SP_IBLOCK_ID_SELECT#'));
 	$rsIblockIds = CIBlock::GetList(array(), array(
@@ -107,7 +107,7 @@ $name = $_POST['_NAME'];
 $name_auto_old = $_POST['NAME_AUTO'];
 $name_auto = str_replace(array('[', ']', '='), array('\[', '\]', '\='), $name_auto);
 if($name == $name_auto_old or empty($name)) {
-	$params['_NAME'] = 'text:#VDF_NAME#:value='.$name_auto.':help=#VETTICH_SP_NAME_HELP#:params=[placeholder=#VETTICH_SP_NAME_PLACEHOLDER#]';
+	$params['_NAME'] = 'text:#VDF_NAME#:'.$name_auto.':help=#VETTICH_SP_NAME_HELP#:params=[placeholder=#VETTICH_SP_NAME_PLACEHOLDER#]';
 }
 $params['NAME_AUTO'] = 'hidden::value='.$name_auto;
 // $params['NAME_AUTO_2'] = 'plaintext:value='.$name
