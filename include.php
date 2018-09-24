@@ -166,8 +166,12 @@ class Module extends \vettich\devform\Module
 		$socialAccs = self::socialAccountsWithName();
 		if(is_array($socialAccs)) {
 			foreach((array)$socialAccs as $key => $value) {
+				$title = self::social($key, 'name');
+				if(empty($title)) {
+					continue;
+				}
 				$result[] = new \vettich\devform\types\checkbox($paramid, array(
-					'title' => self::social($key, 'name'),
+					'title' => $title,
 					'options' => $value,
 					'multiple' => true,
 					// 'refresh' => true,
