@@ -88,15 +88,14 @@ class postTable extends DBase
 	public static function OnBeforeUpdate(Entity\Event $event)
 	{
 		$data = $event->getParameter('fields');
-		if(count($data) == 1 && isset($data['NEXT_PUBLISH_AT'])) {
-			return;
-		}
 		$result = new Entity\EventResult;
 		$modFields = array(
 			'UPDATED_AT' => new Type\DateTime(),
-			'CONDITIONS' => Module::cleanConditions($data['CONDITIONS']),
 		);
-		if($data['PUBLISH']) {
+		if(!empty($data['CONDITIONS'])) {
+			$modFields['CONDITIONS'] = Module::cleanConditions($data['CONDITIONS']);
+		}
+		if(isset($data['PUBLISH']) && is_array($data['PUBLISH'])) {
 			$modFields['PUBLISH'] = $data['PUBLISH'];
 			foreach((array)$data['PUBLISH'] as $key => $value) {
 				if(isset($value['CONDITIONS'])) {
