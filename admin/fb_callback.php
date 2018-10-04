@@ -86,7 +86,7 @@ if(!empty($_GET['code'])) {
 $fb = new Facebook\Facebook(array(
 	'app_id' => $_GET['app_id'],
 	'app_secret' => $_GET['app_secret'],
-	'default_graph_version' => 'v2.9',
+	'default_graph_version' => 'v3.0',
 	'default_access_token' => $_GET['access_token'],
 ));
 try {

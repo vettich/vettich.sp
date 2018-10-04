@@ -116,7 +116,7 @@ class Social extends \Vettich\SP\Social
 			),
 			'js' => '
 			function getAccessToken() {
-				var scopes = "manage_pages,publish_pages,public_profile,user_managed_groups,pages_show_list";
+				var scopes = "manage_pages,publish_pages,public_profile,pages_show_list";
 				if(false && $("#_DATA-customApp:checked").length) {
 					if($("#_DATA-APP_ID").val().trim() == "") {
 						alert("App ID is require");
