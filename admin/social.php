@@ -6,7 +6,8 @@ CModule::IncludeModule('iblock');
 IncludeModuleLangFile(__FILE__);
 
 $socialid = isset($_GET['socialid']) ? $_GET['socialid'] : false;
-if(!empty($socialid) && !empty($social = vettich\SP\Module::social($socialid))) {
+$social = vettich\SP\Module::social($socialid);
+if(!empty($socialid) && !empty($social)) {
 	if(!$_GET['no']) {
 		$db = vettich\SP\Social::accountsDB();
 		$rs = $db::getList(array(
