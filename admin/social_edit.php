@@ -12,7 +12,8 @@ if(!empty($_POST) && SITE_CHARSET != 'UTF-8') {
 }
 
 $socialid = isset($_GET['socialid']) ? $_GET['socialid'] : false;
-if(!empty($socialid) && !empty($social = vettich\SP\Module::social($socialid))) {
+$social = vettich\SP\Module::social($socialid);
+if(!empty($socialid) && !empty($social)) {
 	$social['class']::adminForm();
 } else {
 	echo "$socialid is not found";
