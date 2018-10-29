@@ -189,7 +189,7 @@ class Module extends \vettich\devform\Module
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	public static function event($type, $params=array())
 	{
@@ -268,7 +268,7 @@ class Module extends \vettich\devform\Module
 	}
 
 	private static $_iblockElemIds = array();
-	public static function iblockElemId($id, $iblockId)
+	public static function iblockElemId($id, $iblockId, $isFill=true)
 	{
 		if(!\CModule::IncludeModule('iblock')) {
 			return null;
@@ -283,7 +283,9 @@ class Module extends \vettich\devform\Module
 				)
 			);
 			while($ar = $rs->GetNext()) {
-				self::iblockValueFill($ar);
+				if($isFill) {
+					self::iblockValueFill($ar);
+				}
 				self::$_iblockElemIds[$ar['ID']] = $ar;
 			}
 		}
@@ -506,7 +508,7 @@ class Module extends \vettich\devform\Module
 	public static function iblockValueFill(&$arFields, $isFull=false)
 	{
 		if($isFull) {
-			$arFields = self::iblockElemId($arFields['ID'], $arFields['IBLOCK_ID']);
+			$arFields = self::iblockElemId($arFields['ID'], $arFields['IBLOCK_ID'], false);
 		}
 		$rsProp = \CIBlockElement::GetProperty($arFields['IBLOCK_ID'], $arFields['ID'], array(), Array());
 		while($arProp = $rsProp->GetNext())

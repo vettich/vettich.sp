@@ -9,7 +9,7 @@ use vettich\SP\db\postTable as dbPost;
 */
 class Pending extends Module
 {
-	
+
 	function __construct($args=array())
 	{
 		parent::__construct($args);
@@ -174,7 +174,7 @@ class Pending extends Module
 
 	public static function addElemSimple($arFields, $params)
 	{
-		
+
 	}
 
 	/**
@@ -486,12 +486,14 @@ class Pending extends Module
 			if(self::GetOptionString('is_enable', 'Y') != 'Y') {
 				return;
 			}
-			if(self::GetOptionString('queueLast', 0) >= time()) {
-				return;
-			}
-			self::SetOptionString('queueLast', time()+30);
 			if(empty($from)) {
 				return;
+			}
+			if ($from != 'cloud_cron' || $from != 'cron') {
+				if(self::GetOptionString('queueLast', 0) >= time()) {
+					return;
+				}
+				self::SetOptionString('queueLast', time()+30);
 			}
 
 			$dateNow = new \DateTime();

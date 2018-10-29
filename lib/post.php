@@ -227,23 +227,35 @@ class Post extends Module
 		}
 		if(strpos($macro[0], 'PROPERTY_') === 0) {
 			$k = isset($macro[1]) ? $macro[1] : 'VALUE';
+			$field = $arFields[$macro[0]];
+			$isMulti = $field['MULTIPLE'] == 'Y';
 			if($arFields[$macro[0]]['PROPERTY_TYPE'] == 'S') {
 				/**
 				 * @todo  доделать типы для USER_TYPE
 				 */
-				if($arFields[$macro[0]]['MULTIPLE'] == 'Y') {
-					return implode(', ', $arFields[$macro[0]]['VALUES']);
+				if($field['USER_TYPE'] == 'HTML') {
+					if(!$isMulti) {
+						return $field['VALUE']['TEXT'];
+					}
+					$values = array();
+					foreach ($field['VALUES'] as $arValue) {
+						$values[] = $arValue['TEXT'];
+					}
+					return implode(', ', $values);
+				}
+				if($isMulti) {
+					return implode(', ', $field['VALUES']);
 				} else {
-					return $arFields[$macro[0]]['VALUE'];
+					return $field['VALUE'];
 				}
 			} elseif($arFields[$macro[0]]['PROPERTY_TYPE'] == 'N') {
-				if($arFields[$macro[0]]['MULTIPLE'] == 'Y') {
+				if($isMulti) {
 					return implode(', ', $arFields[$macro[0]]['VALUES']);
 				} else {
 					return $arFields[$macro[0]]['VALUE'];
 				}
 			} elseif($arFields[$macro[0]]['PROPERTY_TYPE'] == 'L') {
-				if($arFields[$macro[0]]['MULTIPLE'] == 'Y') {
+				if($isMulti) {
 					return implode(', ', $arFields[$macro[0]]['VALUES_XML_ID']);
 				}
 				return $arFields[$macro[0]]['VALUE_ENUM'];
@@ -257,7 +269,7 @@ class Post extends Module
 					} else {
 						$elems = self::iblockSection($id, $iblockId);
 					}
-					if($arFields[$macro[0]]['MULTIPLE'] == 'Y') {
+					if($isMulti) {
 						$result = array();
 						foreach((array)$elems as $ar) {
 							$result[] = self::macroValue(array_slice($macro, 2), $ar, $arPost, $isCreateLink);
@@ -269,13 +281,13 @@ class Post extends Module
 				} elseif(!empty($macro[1]) && isset($arFields[$macro[0]][$macro[1]])) {
 					return $arFields[$macro[0]][$macro[1]];
 				} else {
-					return $arFields[$macro[0]]['VALUES'] ? 
+					return $arFields[$macro[0]]['VALUES'] ?
 						implode(', ', $arFields[$macro[0]]['VALUES'])
 						: $arFields[$macro[0]]['VALUE'];
 				}
 			} elseif($arFields[$macro[0]]['PROPERTY_TYPE'] == 'F') {
 				if($k == 'VALUE') {
-					if($arFields[$macro[0]]['MULTIPLE'] == 'Y') {
+					if($isMulti) {
 						$res = array();
 						foreach((array)$arFields[$macro[0]]['VALUES'] as $val) {
 							if($isCreateLink) {
