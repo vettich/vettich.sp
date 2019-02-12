@@ -286,15 +286,22 @@ class Module extends \vettich\devform\Module
 				if($isFill) {
 					self::iblockValueFill($ar);
 				}
+				$ar['filled'] = $isFill;
 				self::$_iblockElemIds[$ar['ID']] = $ar;
 			}
 		}
 		if(is_array($id)) {
 			$result = array();
 			foreach((array)$id as $i) {
+				if($isFill && !self::$_iblockElemIds[$i]['filled']) {
+					self::iblockValueFill(self::$_iblockElemIds[$i]);
+				}
 				$result[$i] = self::$_iblockElemIds[$i];
 			}
 			return $result;
+		}
+		if($isFill && !self::$_iblockElemIds[$id]['filled']) {
+			self::iblockValueFill(self::$_iblockElemIds[$id]);
 		}
 		return self::$_iblockElemIds[$id];
 	}
