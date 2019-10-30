@@ -2,6 +2,7 @@
 namespace Vettich\SP\db;
 
 use Bitrix\Main\Entity;
+use Bitrix\Main\ORM\Fields\ArrayField;
 use Bitrix\Main\Type;
 use Vettich\SP\Module;
 
@@ -24,13 +25,13 @@ class postTable extends DBase
 			new Entity\StringField('IBLOCK_TYPE', array('default_value' => '')),
 			new Entity\StringField('IBLOCK_ID', array('default_value' => '')),
 			new Entity\BooleanField('IS_SECTIONS', array('values'=>array('N', 'Y'), 'default_value' => 'N')),
-			new Entity\TextField('IBLOCK_SECTIONS', array('serialized'=>true, 'default_value' => '')),
+			(new ArrayField('IBLOCK_SECTIONS'))->configureSerializationPhp(),
 			new Entity\StringField('PROTOCOL', array('default_value' => '')),
 			new Entity\StringField('DOMAIN', array('default_value' => '')),
 			new Entity\TextField('URL_PARAMS', array('default_value' => '')),
-			new Entity\TextField('CONDITIONS', array('serialized'=>true, 'default_value' => '')),
-			new Entity\TextField('ACCOUNTS', array('serialized'=>true, 'default_value' => '')),
-			new Entity\TextField('PUBLISH', array('serialized'=>true, 'default_value' => '')),
+			(new ArrayField('CONDITIONS'))->configureSerializationPhp(),
+			(new ArrayField('ACCOUNTS'))->configureSerializationPhp(),
+			(new ArrayField('PUBLISH'))->configureSerializationPhp(),
 
 			new Entity\BooleanField('IS_MANUALLY', array('values'=>array('N', 'Y'), 'default_value' => 'N')),
 			new Entity\BooleanField('IS_INTERVAL', array('values'=>array('N', 'Y'), 'default_value' => 'Y')),
@@ -41,8 +42,8 @@ class postTable extends DBase
 			new Entity\StringField('PERIOD_TO', array('default_value' => '')),
 			// EVERY values => {DAY, WEEK, MONTH}
 			new Entity\StringField('EVERY', array('default_value' => '')),
-			new Entity\TextField('WEEK', array('serialized'=>true, 'default_value' => '')),
-			new Entity\TextField('MONTH', array('serialized'=>true, 'default_value' => '')),
+			(new ArrayField('WEEK'))->configureSerializationPhp(),
+			(new ArrayField('MONTH'))->configureSerializationPhp(),
 
 			// QUEUE_MODE values => {CONSISTENTLY, RANDOM, SORT}
 			new Entity\StringField('QUEUE_MODE', array('default_value' => 'CONSISTENTLY')),
