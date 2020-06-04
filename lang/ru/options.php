@@ -1,4 +1,4 @@
-<?
+<?php
 
 $MESS['YES'] = 'Да';
 $MESS['NO'] = 'Нет';
@@ -123,3 +123,5 @@ $MESS['VETTICH_SP_ASN_instagram'] = '<a href="http://instagram.com" target="_bla
 $MESS['VETTICH_SP_ASN_INSTALLED'] = 'Установлено. <a href="/bitrix/admin/partner_modules.php?id=#mid#&lang=ru&uninstall=Y&sessid=#sessid#">Удалить</a>.';
 $MESS['VETTICH_SP_ASN_INSTALL_FREE'] = 'Установить через <a href="/bitrix/admin/update_system_partner.php?addmodule=#mid#">админку</a>. Посмотреть в <a href="https://marketplace.1c-bitrix.ru/#mid#" target="_blank">маркетплейсе</a>.';
 $MESS['VETTICH_SP_ASN_INSTALL'] = 'Купить в <a href="https://marketplace.1c-bitrix.ru/#mid#" target="_blank">маркетплейсе</a>.';
+$MESS['VCH_SHOW_PROMO_V3'] = 'Показывать промо страницу 3 версии модуля';
+$MESS['VCH_SHOW_PROMO_V3_HELP'] = 'При отмеченной галочке, в меню появляется пункт "Версия 3.0". Перейдя по этому пункту меню, можно посмотреть промо страницу новой версии модуля';

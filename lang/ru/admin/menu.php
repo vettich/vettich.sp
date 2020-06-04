@@ -1,4 +1,4 @@
-<?
+<?php
 
 $MESS['VettichSPMenu_Text'] = 'Автопубликации в соц. сети';
 $MESS['VettichSPMenu_Posts'] = 'Публикации';
@@ -6,6 +6,7 @@ $MESS['VettichSPMenu_Posts_Title'] = 'Настройка публикаций';
 $MESS['VettichSPMenu_Queue'] = 'Очередь';
 $MESS['VettichSPMenu_Logs'] = 'Журнал';
 $MESS['VettichSPMenu_Settings'] = 'Настройки';
+$MESS['VettichSPMenu_PromoV3'] = 'Промо версии 3.0';
 $MESS['VettichSPMenu_acc_vk'] = 'ВКонтакте';
 $MESS['VettichSPMenu_acc_facebook'] = 'Facebook';
 $MESS['VettichSPMenu_acc_twitter'] = 'Twitter';
