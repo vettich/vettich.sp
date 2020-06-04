@@ -1,4 +1,4 @@
-<?
+<?php
 
 $MESS['YES'] = 'Yes';
 $MESS['NO'] = 'No';
@@ -120,6 +120,8 @@ $MESS['VETTICH_SP_ASN_pinterest'] = '<a href="http://pinterest.com" target="_bla
 $MESS['VETTICH_SP_ASN_ok'] = '<a href="http://ok.ru" target="_blank">Odnoklassniki</a>';
 $MESS['VETTICH_SP_ASN_myworld'] = '<a href="http://my.mail.ru" target="_blank">My World</a>';
 $MESS['VETTICH_SP_ASN_instagram'] = '<a href="http://instagram.com" target="_blank">Instagram</a>';
-$MESS['VETTICH_SP_ASN_INSTALLED'] = 'Установлено. <a href="/bitrix/admin/partner_modules.php?id=#mod#&lang=ru&uninstall=Y&session=#sessid#"> Удалить </a>.';
+$MESS['VETTICH_SP_ASN_INSTALLED'] = 'Installed. <a href="/bitrix/admin/partner_modules.php?id=#mod#&lang=ru&uninstall=Y&session=#sessid#"> Remove </a>.';
 $MESS['VETTICH_SP_ASN_INSTALL_FREE'] = 'Install via <a href="/bitrix/admin/update_system_partner.php?addmodule=#mid#"> admin </a>. Look in the <a href="https://marketplace.1c-bitrix.ru/#mid#" target="_blank"> marketplace </a>.';
 $MESS['VETTICH_SP_ASN_INSTALL'] = 'Buy in the <a href="https://marketplace.1c-bitrix.ru/#mid#" target="_blank"> marketplace </a>.';
+$MESS['VCH_SHOW_PROMO_V3'] = 'Show promo page of the 3rd version of the module';
+$MESS['VCH_SHOW_PROMO_V3_HELP'] = 'With a checkmark selected, the item "Version 3.0" appears in the menu. By clicking on this menu item, you can see the promo page of the new version of the module';

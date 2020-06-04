@@ -30,7 +30,7 @@ ob_start();
 
 	<tr>
 		<td colspan="2">
-				<img src="/bitrix/images/vettich.sp/promo-01.jpg" />
+			<img src="/bitrix/images/vettich.sp/promo-01.jpg" />
 		</td>
 		<td class="vch-promo-feat-text">
 			<h2>
@@ -55,13 +55,13 @@ ob_start();
 				доступ и добавить нужные аккаунты</p>
 		</td>
 		<td colspan="2">
-				<img src="/bitrix/images/vettich.sp/promo-06.jpg" />
+			<img src="/bitrix/images/vettich.sp/promo-06.jpg" />
 		</td>
 	</tr>
 
 	<tr>
 		<td colspan="2">
-				<img src="/bitrix/images/vettich.sp/promo-02.png" />
+			<img src="/bitrix/images/vettich.sp/promo-02.png" />
 		</td>
 		<td class="vch-promo-feat-text">
 			<h2>
@@ -85,13 +85,13 @@ ob_start();
 				или товаров со своими параметрами</p>
 		</td>
 		<td colspan="2">
-				<img src="/bitrix/images/vettich.sp/promo-03.png" />
+			<img src="/bitrix/images/vettich.sp/promo-03.png" />
 		</td>
 	</tr>
 
 	<tr>
 		<td colspan="2">
-				<img src="/bitrix/images/vettich.sp/promo-04.png" />
+			<img src="/bitrix/images/vettich.sp/promo-04.png" />
 		</td>
 		<td class="vch-promo-feat-text">
 			<h2>
@@ -117,7 +117,7 @@ ob_start();
 				автоматически подстроятся под оптимальный размер</p>
 		</td>
 		<td colspan="2">
-				<img src="/bitrix/images/vettich.sp/promo-05.png" />
+			<img src="/bitrix/images/vettich.sp/promo-05.png" />
 		</td>
 	</tr>
 
